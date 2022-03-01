@@ -1,6 +1,7 @@
 package com.l.file;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author liam
@@ -9,8 +10,8 @@ import java.nio.ByteBuffer;
 public class Common {
     public static void read(ByteBuffer byteBuffer) {
         while (byteBuffer.hasRemaining()) {
-            byte b = byteBuffer.get();
-            System.err.println((char) b);
+            String string = StandardCharsets.UTF_8.decode(byteBuffer).toString();
+            System.err.println(string);
         }
     }
 }
